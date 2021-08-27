@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Intl Enumeration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="proposal-intl-enumeration/polyfill/currencies.js"></script>
+    <script src="proposal-intl-enumeration/polyfill/timeZones.js"></script>
+    <script src="proposal-intl-enumeration/polyfill/units.js"></script>
+    <script src="locale-list.js"></script>
+    <script src="datetime-locales.js"></script>
+    <script src="number-locales.js"></script>
+</head>
+
+<body>
+    <h1>Intl Enumeration</h1>
+    <h2>Currencies</h2>
+    <p><span id="currencies">?</span></p>
+    <h2>DateTimeFormat locales</h2>
+    <p><span id="dtf-locales">?</span></p>
+    <h2>NumberFormat locales</h2>
+    <p><span id="nf-locales">?</span></p>
+    <h2>Timezones</h2>
+    <p><span id="timezones">?</span></p>
+    <h2>Units</h2>
+    <p><span id="units">?</span></p>
+
+    <script>
+        function insert(id, name, list) {
+            list.sort();
+            document.getElementById(id).innerHTML = "Supported " + name + " (" + list.length + "): " + list.join(', ');
+        }
+        insert('currencies', 'currencies', Intl.getSupportedCurrencies());
+        insert('dtf-locales', 'DateTimeFormat locales', Intl.supportedDateTimeLocales());
+        insert('nf-locales', 'NumberFormat locales', Intl.supportedNumberLocales());
+        insert('timezones', 'timezones', Intl.getSupportedTimeZones());
+        insert('units', 'units', Intl.getSupportedUnits());
+    </script>
+</body>
+
+</html>
