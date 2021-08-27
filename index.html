@@ -8,9 +8,7 @@
     <script src="proposal-intl-enumeration/polyfill/currencies.js"></script>
     <script src="proposal-intl-enumeration/polyfill/timeZones.js"></script>
     <script src="proposal-intl-enumeration/polyfill/units.js"></script>
-    <script src="locale-list.js"></script>
-    <script src="datetime-locales.js"></script>
-    <script src="number-locales.js"></script>
+    <script src="locales.js"></script>
 </head>
 
 <body>
@@ -32,8 +30,8 @@
             document.getElementById(id).innerHTML = "Supported " + name + " (" + list.length + "): " + list.join(', ');
         }
         insert('currencies', 'currencies', Intl.getSupportedCurrencies());
-        insert('dtf-locales', 'DateTimeFormat locales', Intl.supportedDateTimeLocales());
-        insert('nf-locales', 'NumberFormat locales', Intl.supportedNumberLocales());
+        insert('dtf-locales', 'DateTimeFormat locales', Intl.supportedLocales('DateTimeFormat'));
+        insert('nf-locales', 'NumberFormat locales', Intl.supportedLocales('NumberFormat'));
         insert('timezones', 'timezones', Intl.getSupportedTimeZones());
         insert('units', 'units', Intl.getSupportedUnits());
     </script>
